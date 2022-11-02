@@ -17,61 +17,41 @@ declare let player1 = new Player(nameInput, playerId)
 declare let player2 = new Player(nameInput, playerId)
 
 
-declare function roll(){ //attached to button element
+// declare function roll(){ //attached to button element
   call getRandomIntInclusive()
     IF 1, add 0 score to this.globalTurnScore, end turn //(switchPlayer(event,findPlayerById))
       IF...Else add 2-6 to this.globaleTurnScore
       this.globalTurnScore = this.globalTurnScore + 2-6
     }
 
-declare function hold()
+// declare function hold()
   add this.globalTurnScore to this.score;
+  IF (this.score >= 100) {
+    they win
+  } 
   this.gobalTurnScore = 0;
 
 
 
+// declare switchPlayer()
 
+  
 
-
-
-
-
-
-
-
-
-
-  declare a function hold() that will add turnScore to score and switch playerId
-      
-      IF a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.
-      Else...IF player wants to continue, continue to looping
-
-findPlayerById
-
-
-The first player to score 100 or more points wins.
-
-switchPlayer() to switch playerId=1 using playerPlays() to playerId=2 to use playerPlays()
-
-
-
-For example, the first player, Donald, begins a turn with a roll of 5. Donald could hold and score 5 points, but chooses to roll again. Donald rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Donald rolls a 1, and must end his turn without scoring. The next player, Alexis, rolls the sequence 4-5-3-5-6, after which she chooses to hold, and adds her turn total of 23 points to her score.
 
 
 //random int
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
+
 
 
 Describe: getRandomIntInclusive(min, max)
 
-TEST 1: // gets a random number from min - max
-
-
+TEST 1: "It gets a random number from min - max and output"
+Code: 
 getRandomIntInclusive(1, 6)
+Expected Output:
+random number between 1-6
+
+
 
 
 
@@ -106,19 +86,6 @@ For example, all digits of the number 2, 24, or 2099 would be replaced with "Boo
 For example, all digits of the number 39, 3, or 8763 would be replaced with "Won't you be my neighbor?"
 
 * These substitutions are written from least to most important. The first substitution should apply unless the second does, and the same with the second and third. In other words, the substitution for the number 1 should apply unless there's a 2 present in the number. Then, the substitution for the number 2 should apply unless there's a 3 present in the number.
-
-| Test | Input | Output |
-|--------|:------:|:-----:|
-| 1.  This test will take an input. | Input: x  |  Output: x |
-| 2.  This test will take in number. | Input: 0 |  Output: 0 |
-| 3.   This test will require a number only. | Input: 1 |  Output: 1 |
-| 4.  This test will identify a given number 1 and produce a message based on that number. | Input: 1 |  Output: Beep! |
-| 5.  This test will identify numbers 1-2 and produce a specific message for number which appears first from the user input. | Input: 2 |  Output: Boop!|
-| 6.  This test will identify numbers 1-3 and produce a specific message for number which appears first from the user input. | Input: 3 |  Output: Won't you be my neighbor?|
-| 7.  This test will identify a multiple numbers entry and produce a specific message for number which appears first from the user input. | Input: 321,803 |  Output: Won't you be my neighbor?|
-| 8.  This test will intake a multiple numbers entry and weigh from 1-3 with 3 being the most weighted. | Input: 321,803 |  Output: Won't you be my neighbor?|
-| 9.  This test will identify if numbers 1, 2, 3 are not found from the user input. | Input: 5,806 |  Output: Outside?|
-
 
 ## Setup/Installation Requirements
 
