@@ -2,35 +2,74 @@
 
 Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
   // define constructor function for 
-  Player (name, playerId, score) 
-    { name = name, 
-    playerId = playerId,
-    tempScore = tempScore, //currentScore (*starts at 0 each time)
-        score = score, // score += scoretempScore
+  Player (name, playerId) 
+    { name = name; 
+    playerId = playerId;
+    score = 0;          // score += scoretempScore
+    globalTurnScore = 0;
+    }
  -->
 
+const event = Player.prototype.anyGivenMethod(e.target.id); // e = handler fx
+
+declare let player1 = new Player(nameInput, playerId)
+
+declare let player2 = new Player(nameInput, playerId)
 
 
-If the player rolls a 1, they score nothing and it becomes the next player's turn.
-If the player rolls any other number, it is added to their turn total and the player's turn continues.
-If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.
+declare function roll(){ //attached to button element
+  call getRandomIntInclusive()
+    IF 1, add 0 score to this.globalTurnScore, end turn //(switchPlayer(event,findPlayerById))
+      IF...Else add 2-6 to this.globaleTurnScore
+      this.globalTurnScore = this.globalTurnScore + 2-6
+    }
+
+declare function hold()
+  add this.globalTurnScore to this.score;
+  this.gobalTurnScore = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  declare a function hold() that will add turnScore to score and switch playerId
+      
+      IF a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.
+      Else...IF player wants to continue, continue to looping
+
+findPlayerById
+
+
 The first player to score 100 or more points wins.
+
+switchPlayer() to switch playerId=1 using playerPlays() to playerId=2 to use playerPlays()
+
+
 
 For example, the first player, Donald, begins a turn with a roll of 5. Donald could hold and score 5 points, but chooses to roll again. Donald rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Donald rolls a 1, and must end his turn without scoring. The next player, Alexis, rolls the sequence 4-5-3-5-6, after which she chooses to hold, and adds her turn total of 23 points to her score.
 
 
-
-
-
-
-
-
-TEST 1: // gets a random number from min - max
+//random int
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
+
+
+Describe: getRandomIntInclusive(min, max)
+
+TEST 1: // gets a random number from min - max
+
 
 getRandomIntInclusive(1, 6)
 
