@@ -61,18 +61,18 @@ roll()
 Expected Output:
 player1.globaleTurnScore should === a random number that was assigned to it
 
-Test2: "It should roll 1 and make player1.globaleTurnScore 0"
+Test2: "It should roll 1 and make player1.globalTurnScore 0"
 Code:
 roll()
 Expected Output:
-player1.globaleTurnScore should === 0 and call switchPlayer()
+player1.globalTurnScore should === 0 and call switchPlayer()
 
 Test3 "It should roll a random number between 2-6 and ADD it to player1.globalTurnScore"
 code: 
 roll(); 
 roll();
 Expected Output:
-player1.globaleTurnScore should === player1.globalTurnScore (that is either 2-6) + roll() output
+player1.globalTurnScore should === player1.globalTurnScore (that is either 2-6) + roll() output
 
 
 Describe: hold()
@@ -81,13 +81,13 @@ Test1: "It should add player1.globalTurnScore to player1.score"
 Code:
 hold()
 Expected Output:
-player1.score === player1.score + player1.globaleTurnScore;
+player1.score === player1.score + player1.globalTurnScore;
 
-Test2: "It should assign player1.globaleTurnScore to 0;
+Test2: "It should assign player1.globalTurnScore to 0;
 Code:
 hold()
 Expected Output:
-player1.globaleTurnScore === 0;
+player1.globalTurnScore === 0;
 
 Test3: "It should console.log('You Win!')"
 Code:

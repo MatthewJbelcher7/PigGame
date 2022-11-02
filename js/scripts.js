@@ -25,18 +25,22 @@ function getRandomIntInclusive(min, max) {
 
 function roll() {
   let randomNumber = getRandomIntInclusive(1, 6)
-
+  console.log("RandomNumber: ", randomNumber);
   if (randomNumber === 1) {
     player1.globalTurnScore = 0;
     return
   } else {
-  player1.globalTurnScore = player1.globalTurnScore + randomNumber; 
+    player1.globalTurnScore = player1.globalTurnScore + randomNumber; 
   }
   return 
 }
 
 function hold(){
   player1.score += player1.globalTurnScore;
+  player1.globalTurnScore = 0
+  if (player1.score >= 10){
+  console.log("You win")
+  }
 }
 
 // This is our hardcoded player declaration
