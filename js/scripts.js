@@ -24,11 +24,16 @@ function getRandomIntInclusive(min, max) {
 
 
 function roll() {
-  //write code that gets us TO the return we want
-  player1.globalTurnScore = getRandomIntInclusive(1, 6)
-  return 
-  //player1.globaleTurnScore should === a random number that was assigned to it
+  let randomNumber = getRandomIntInclusive(1, 6)
+  console.log(randomNumber)
 
+  if (randomNumber === 1) {
+    player1.globalTurnScore = 0;
+    return
+  } else {
+  player1.globalTurnScore = player1.globalTurnScore + randomNumber; 
+  }
+  return 
 }
 
 

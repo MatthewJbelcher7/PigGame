@@ -61,7 +61,7 @@ roll()
 Expected Output:
 player1.globaleTurnScore should === a random number that was assigned to it
 
-Test2: "It shold roll 1 and make player1.globaleTurnScore 0"
+Test2: "It should roll 1 and make player1.globaleTurnScore 0"
 Code:
 roll()
 Expected Output:
