@@ -25,7 +25,7 @@ For example, the first player, Donald, begins a turn with a roll of 5. Donald co
 
 
 
-// gets a random number from min - max
+TEST 1: // gets a random number from min - max
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
