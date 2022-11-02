@@ -1,8 +1,8 @@
 //Buisness Logic//
-// function SetGame(){
-//   this.players = {};
-//   this.playerId = 0;
-// }
+function SetGame(){
+  this.players = {};
+  this.playerId = 0;
+}
 
 function Player (name, playerId) { 
   this.name = name; 
@@ -11,9 +11,19 @@ function Player (name, playerId) {
   this.globalTurnScore = 0;
 }
 
-// SetGame.
+// SetGame
 
 // define constructor function for 
+
+SetGame.prototype.assignId = function() {
+  return this.playerId += 1
+};
+
+SetGame.prototype.addPlayer = function(player) {
+  player.playerId = this.assignId();
+  this.players[player.playerId] = player;
+};
+
 
 
 function getRandomIntInclusive(min, max) {
@@ -22,29 +32,31 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
 
-
 function roll() {
   let randomNumber = getRandomIntInclusive(1, 6)
   console.log("RandomNumber: ", randomNumber);
   if (randomNumber === 1) {
-    player1.globalTurnScore = 0;
+    playerId.globalTurnScore = 0;
     return
   } else {
-    player1.globalTurnScore = player1.globalTurnScore + randomNumber; 
+    playerId.globalTurnScore = playerId.globalTurnScore + randomNumber; 
   }
   return 
 }
 
 function hold(){
-  player1.score += player1.globalTurnScore;
-  player1.globalTurnScore = 0
-  if (player1.score >= 10){
+  playerId.score += playerId.globalTurnScore;
+  playerId.globalTurnScore = 0
+  if (playerId.score >= 10){
   console.log("You win")
   }
 }
 
+// UI
 // This is our hardcoded player declaration
-let player1 = new Player("Richard", 1);
+let setGame = new SetGame();
+let playerId = new Player();
+
 
 
 
