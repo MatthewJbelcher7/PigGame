@@ -12,7 +12,7 @@ Each turn, a player repeatedly rolls a die until either a 1 is rolled or the pla
 
 const event = Player.prototype.anyGivenMethod(e.target.id); // e = handler fx
 
-declare let player1 = new Player(nameInput, playerId)
+declare 
 
 declare let player2 = new Player(nameInput, playerId)
 
@@ -50,6 +50,33 @@ Code:
 getRandomIntInclusive(1, 6)
 Expected Output:
 random number between 1-6
+
+
+Describe: roll()
+
+Test1: "It should roll a random number between 2-6 and assign it to player1.globalTurnScore"
+Code: 
+let player1 = new Player(nameInput, playerId)
+roll()
+Expected Output:
+player1.globaleTurnScore should === a random number that was assigned to it
+
+Test2: "It shold roll 1 and make player1.globaleTurnScore 0"
+Code:
+roll()
+Expected Output:
+player1.globaleTurnScore should === 0 and call switchPlayer()
+
+Test3 "It should roll a random number between 2-6 and ADD it to player1.globalTurnScore"
+code: 
+roll(); 
+roll();
+Expected Output:
+player1.globaleTurnScore should === player1.globalTurnScore (that is either 2-6) + roll() output
+
+
+Describe: hold()
+
 
 
 
