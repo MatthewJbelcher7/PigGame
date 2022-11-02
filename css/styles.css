@@ -4,3 +4,7 @@
 img {
   opacity: 0.5;
 }
+body {
+  background: url("https://imgs.search.brave.com/Fbpc05cozsKCK77gLZbqCmdDxOVAfkqkwvq-n41oBKI/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Y/bFU4UDRJbUxRcDNp/R0p4YVp0UFlnSGFF/OCZwaWQ9QXBp") no-repeat;
+  background-size: cover;
+}

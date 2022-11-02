@@ -28,7 +28,7 @@ declare let player2 = new Player(nameInput, playerId)
   add this.globalTurnScore to this.score;
   IF (this.score >= 100) {
     they win
-  } 
+  } break;
   this.gobalTurnScore = 0;
 
 
@@ -76,6 +76,25 @@ player1.globaleTurnScore should === player1.globalTurnScore (that is either 2-6)
 
 
 Describe: hold()
+
+Test1: "It should add player1.globalTurnScore to player1.score"
+Code:
+hold()
+Expected Output:
+player1.score === player1.score + player1.globaleTurnScore;
+
+Test2: "It should assign player1.globaleTurnScore to 0;
+Code:
+hold()
+Expected Output:
+player1.globaleTurnScore === 0;
+
+Test3: "It should console.log('You Win!')"
+Code:
+player1.score = 100;
+hold()
+Expected Output: 
+console.log() shows "You Win!"
 
 
 
