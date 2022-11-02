@@ -25,7 +25,6 @@ function getRandomIntInclusive(min, max) {
 
 function roll() {
   let randomNumber = getRandomIntInclusive(1, 6)
-  console.log(randomNumber)
 
   if (randomNumber === 1) {
     player1.globalTurnScore = 0;
@@ -36,7 +35,12 @@ function roll() {
   return 
 }
 
+function hold(){
+  player1.score += player1.globalTurnScore;
+}
 
+// This is our hardcoded player declaration
+let player1 = new Player("Richard", 1);
 
 
 
