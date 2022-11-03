@@ -1,19 +1,11 @@
-//Buisness Logic//
+//Business Logic//
+
+
+// Business Logic SetGame
 function SetGame(){
   this.players = {};
   this.playerId = 0;
 }
-
-function Player (name, playerId) { 
-  this.name = name; 
-  this.playerId = playerId;
-  this.score = 0;          // score += scoretempScore
-  this.globalTurnScore = 0;
-}
-
-// SetGame
-
-// define constructor function for 
 
 SetGame.prototype.assignId = function() {
   return this.playerId += 1
@@ -24,6 +16,12 @@ SetGame.prototype.addPlayer = function(player) {
   this.players[player.playerId] = player;
 };
 
+// define constructor function for 
+function Player (name) { 
+  this.name = name; 
+  this.score = 0;          
+  this.globalTurnScore = 0;
+}
 
 
 function getRandomIntInclusive(min, max) {
@@ -55,16 +53,14 @@ function hold(){
 // UI
 // This is our hardcoded player declaration
 let setGame = new SetGame();
-let playerId = new Player();
 
+function handleFormSubmission(event){
+  event.preventDefaul();
+  // event handler takes in submit button input of "name"
+  //let player1 = new Player (input from the form)
+  const player1 = document.querySelector("form#player-1").value;
+  const player2 = document.querySelector("form#player-2").value;
 
-
-
-
-
-
-
-
-// UI Logic
+}
 
 //dont forget to add "load" event
