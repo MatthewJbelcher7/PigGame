@@ -53,9 +53,12 @@ function hold() {
   // roll(e);
   // hold(e);
 
-SetGame.prototype.gamePlay = function(e, player){
+SetGame.prototype.gamePlay = function(e, player1, player2){
   let playerId = e.target.playerId; //let didWin = "no";
  //  while (didWin === "yes") {
+  console.log("playerId", playerId);
+  console.log("event", e);
+  
   if (player1 === this.players[playerId]) {
     this.players[playerId] = player;
   } else if (player2 === this.players[playerId]) {
@@ -65,22 +68,6 @@ SetGame.prototype.gamePlay = function(e, player){
     hold(e);
 }
 
-// UI
-// This is our hardcoded player declaration
-let setGame = new SetGame();
-
-function handleFormSubmission(event){
-  event.preventDefault();
-  // event handler takes in submit button input of "name"
-  //let player1 = new Player (input from the form)
-  const playerInput1 = document.querySelector("form#player-input-1").value;
-  const playerInput2 = document.querySelector("form#player-input-2").value;
-  
-  let player1 = new Player(playerInput1);
-  let player2 = new Player(playerInput2);
-
-  setGame.addPlayer(player1);
-  setGame.addPlayer(player2);
   
   // let didWin = "no";
   // while (didWin === "yes") {
@@ -98,15 +85,34 @@ function handleFormSubmission(event){
   //     }
   //   }
    
+// UI
+// This is our hardcoded player declaration
+let setGame = new SetGame();
+
+function handleFormSubmission(event){
+  // event handler takes in submit button input of "name"
+  //let player1 = new Player (input from the form)
+  const playerInput1 = document.querySelector("input#player-input-1").value;
+  const playerInput2 = document.querySelector("input#player-input-2").value;
+  
+  let player1 = new Player(playerInput1);
+  let player2 = new Player(playerInput2);
+
+  setGame.addPlayer(player1);
+  setGame.addPlayer(player2);
+  // let player = Player();
+  // setGame.gamePlay(e,player); // call the game.
+  console.log("I'm submitted.", event);
+  event.preventDefault();
+
 }
 
 
 //dont forget to add "load" event
 window.addEventListener("load", function(){
-  const form = document.querySelector("form#submit-button");
-  form.addEventListener("submit", handleFormSubmission);
-  document.querySelector("button#roll-button").addEventListener("click", roll);
-  document.querySelector("button#hold-button").addEventListener("click", hold);
+  document.getElementById("submit-button").addEventListener("submit", handleFormSubmission);
+  // document.querySelector("button#roll-button").addEventListener("click", roll);
+  // document.querySelector("button#hold-button").addEventListener("click", hold);
 
 
 });
