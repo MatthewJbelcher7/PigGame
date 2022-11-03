@@ -30,22 +30,23 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
 
-function roll() {
+function roll(e, playerId) {
+  e.preventDefault()
   let randomNumber = getRandomIntInclusive(1, 6)
   console.log("RandomNumber: ", randomNumber);
   if (randomNumber === 1) {
     playerId.globalTurnScore = 0;
     return
   } else {
-    playerId.globalTurnScore = playerId.globalTurnScore + randomNumber; 
+    setGame.playerId.globalTurnScore = setGame.playerId.globalTurnScore + randomNumber; 
   }
   return 
 }
 
 function hold() { 
-  playerId.score += playerId.globalTurnScore;
-  playerId.globalTurnScore = 0
-  if (playerId.score >= 10){
+  setGame.playerId.score += setGame.playerId.globalTurnScore;
+  setGame.playerId.globalTurnScore = 0
+  if (setGame.playerId.score >= 10){
   console.log("You win")
   }
 }
@@ -62,29 +63,13 @@ SetGame.prototype.gamePlay = function(e, player1, player2){
   if (player1 === this.players[playerId]) {
     this.players[playerId] = player;
   } else if (player2 === this.players[playerId]) {
-    this.players[playerId] = player;
+    // this.players[playerId] = player;
   }  
     roll(e);
     hold(e);
 }
 
   
-  // let didWin = "no";
-  // while (didWin === "yes") {
-  //   if (player === playerId) {
-  //     let holdCondition = roll(); // returns "lose" or "hold"
-  //     if (holdCondition === "hold") {
-  //       hold() //if hold() returns "winner" do this: didwin = "yes";
-  //     } else if (holdCondition === "lose") {
-  //       let holdCondition2 = roll()
-  //         if (holdCondition2 === "hold") {
-  //           hold()
-  //         } else if (holdCondition2 === "lose") {
-  //           continue;
-  //         } 
-  //     }
-  //   }
-   
 // UI
 // This is our hardcoded player declaration
 let setGame = new SetGame();
@@ -105,13 +90,17 @@ function handleFormSubmission(event){
   console.log("I'm submitted.", event);
   event.preventDefault();
 
+  //new code 1:45
+  setGame.gamePlay(event, player1, player2);
 }
 
 
 //dont forget to add "load" event
 window.addEventListener("load", function(){
   document.getElementById("submit-button").addEventListener("submit", handleFormSubmission);
-  // document.querySelector("button#roll-button").addEventListener("click", roll);
+
+
+  document.getElementById("roll-button").addEventListener("click", roll);
   // document.querySelector("button#hold-button").addEventListener("click", hold);
 
 
