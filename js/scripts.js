@@ -42,12 +42,27 @@ function roll() {
   return 
 }
 
-function hold(){
+function hold() { 
   playerId.score += playerId.globalTurnScore;
   playerId.globalTurnScore = 0
   if (playerId.score >= 10){
   console.log("You win")
   }
+}
+
+  // roll(e);
+  // hold(e);
+
+SetGame.prototype.gamePlay = function(e, player){
+  let playerId = e.target.playerId; //let didWin = "no";
+ //  while (didWin === "yes") {
+  if (player1 === this.players[playerId]) {
+    this.players[playerId] = player;
+  } else if (player2 === this.players[playerId]) {
+    this.players[playerId] = player;
+  }  
+    roll(e);
+    hold(e);
 }
 
 // UI
@@ -66,26 +81,23 @@ function handleFormSubmission(event){
 
   setGame.addPlayer(player1);
   setGame.addPlayer(player2);
-
-  // roll(e);
-  // hold(e);
-
-  play the game fx(e);
-  let didWin = "no";
-  while (didWin === "yes") {
-    if (player === playerId) {
-      let holdCondition = roll(); // returns "lose" or "hold"
-      if (holdCondition === "hold") {
-        hold() //if hold() returns "winner" do this: didwin = "yes";
-      } else if (holdCondition === "lose") {
-        let holdCondition2 = roll()
-          if (holdCondition2 === "hold") {
-            hold()
-          } else if (holdCondition2 === "lose") {
-            continue;
-          } 
-      }
-    }
+  
+  // let didWin = "no";
+  // while (didWin === "yes") {
+  //   if (player === playerId) {
+  //     let holdCondition = roll(); // returns "lose" or "hold"
+  //     if (holdCondition === "hold") {
+  //       hold() //if hold() returns "winner" do this: didwin = "yes";
+  //     } else if (holdCondition === "lose") {
+  //       let holdCondition2 = roll()
+  //         if (holdCondition2 === "hold") {
+  //           hold()
+  //         } else if (holdCondition2 === "lose") {
+  //           continue;
+  //         } 
+  //     }
+  //   }
+   
 }
 
 
@@ -93,5 +105,8 @@ function handleFormSubmission(event){
 window.addEventListener("load", function(){
   const form = document.querySelector("form#submit-button");
   form.addEventListener("submit", handleFormSubmission);
+  document.querySelector("button#roll-button").addEventListener("click", roll);
+  document.querySelector("button#hold-button").addEventListener("click", hold);
+
 
 });
